@@ -14,13 +14,14 @@
   <h1>Mi Web</h1>
   <p>Estado del toggle: <strong id="estado">cargando...</strong></p>
 
-  <script type="module">
+  <script src="https://cdn.jsdelivr.net/npm/@configcat/sdk@latest/dist/configcat.browser.umd.min.js"></script>
 
-    const client = configcat.getClient("configcat-sdk-1/gSHfCO8w1kSGI4uHKQqIGQ/RlsAnrNH3U-3i3UbXHqSww");
-    const activo = await client.getValueAsync("dark_mode_enabled", false);
+<script type="module">
+  const client = configcat.getClient("configcat-sdk-1/gSHfCO8w1kSGI4uHKQqIGQ/RlsAnrNH3U-3i3UbXHqSww");
+  const activo = await client.getValueAsync("dark_mode_enabled", false);
 
-    document.getElementById("estado").textContent = activo ? "ON" : "OFF";
-    if (activo) document.body.classList.add("dark");
-  </script>
+  document.getElementById("estado").textContent = activo ? "ON" : "OFF";
+  if (activo) document.body.classList.add("dark");
+</script>
 </body>
 </html>
