@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Mi Web</title>
+  <style>
+    :root { --fondo: #ffffff; --texto: #1a1a1a; }
+    body.dark { --fondo: #121212; --texto: #f0f0f0; }
+    body { background: var(--fondo); color: var(--texto);
+           font-family: sans-serif; padding: 2rem; }
+  </style>
+</head>
+<body>
+  <h1>Mi Web</h1>
+  <p>Estado del toggle: <strong id="estado">cargando...</strong></p>
+
+  <script type="module">
+
+    const client = configcat.getClient("configcat-sdk-1/gSHfCO8w1kSGI4uHKQqIGQ/RlsAnrNH3U-3i3UbXHqSww");
+    const activo = await client.getValueAsync("dark_mode_enabled", false);
+
+    document.getElementById("estado").textContent = activo ? "ON" : "OFF";
+    if (activo) document.body.classList.add("dark");
+  </script>
+</body>
+</html>
